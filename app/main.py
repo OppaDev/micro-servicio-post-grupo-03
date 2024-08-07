@@ -1,15 +1,7 @@
-from typing import Union
-
 from fastapi import FastAPI
+from app.api.v1.endpoints import api_router
+from app.core.config import settings
 
 app = FastAPI()
 
-
-@app.get("/")
-async def read_root():
-    return {"New": "Post"}
-
-
-@app.get("/post/{post_id}")
-async def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+app.include_router(api_router, prefix=settings.API_V1_STR)

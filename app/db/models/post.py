@@ -1,6 +1,9 @@
 from sqlalchemyc import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.sql import func
 from app.db.base import Base
+from pydantic import BaseModel
+from datetime import datetime
+from typing import Optional
 
 class Post(Base):
     __tablename__ = 'posts'
@@ -14,3 +17,26 @@ class Post(Base):
 
     #user_id = Column(Integer, ForeignKey('users.id'))
     
+
+class PostBase(BaseModel):
+    title: str
+    body: str
+    img_url: Optional[str] = None
+
+class PostCreate(PostBase):
+    pass
+
+class PostUpdate(PostBase):
+    pass
+
+class PostInDBBase(PostBase):
+    id: int
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        orm_mode = True
+        
+
+#Alias for the Pydantic model used in responses
+Post = PostInDBBase
