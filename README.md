@@ -1,7 +1,7 @@
 # Grupo 03
-Karla Ansatuña
-Leonardo Obando
-Alex Trejo
+### Karla Ansatuña
+### Leonardo Obando
+### Alex Trejo
 # Microservicio de Blog
 
 Este proyecto es un microservicio para gestionar publicaciones de un blog utilizando FastAPI y PostgreSQL. A continuación se detalla la configuración, el proceso de instalación y el uso de este microservicio.
