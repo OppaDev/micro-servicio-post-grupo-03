@@ -53,23 +53,29 @@ services:
 
 Migraciones de Base de Datos
 Las migraciones se gestionan con Alembic. Para aplicar las migraciones a la base de datos, usa el siguiente comando:
+
 ```bash
 docker-compose exec app alembic upgrade head
+```
 
 Para verificar la estructura de la base de datos, puedes conectarte al contenedor de PostgreSQL y revisar las tablas:
+
 ```bash
 docker-compose exec db psql -U admin -d cms_db
+```
 
 Desarrollo
 Para desarrollar el proyecto, accede al contenedor de la aplicación:
 ```bash
 docker-compose exec app sh
+```
 
 Navega al directorio de migraciones y abre los archivos de migración con vi o cualquier editor disponible:
+
 ```bash
 cd migrations/versions
 vi 176bf6dc8c8f_initial_migration.py
-
+```
 
 Ejemplo de Solicitud POST
 Puedes hacer solicitudes POST a la API utilizando herramientas como Thunder Client. Aquí tienes un ejemplo de solicitud para crear una nueva publicación:
